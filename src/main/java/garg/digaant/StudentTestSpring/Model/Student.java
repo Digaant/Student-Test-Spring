@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,16 +19,16 @@ public class Student{
     private int age;
 
     @OneToMany(mappedBy = "students")
-    private Set<Test> tests;
+    private Set<Test> tests = new HashSet<>();
 
     public Student() {
     }
 
-    public Student(Long id, String name, int age, Set<Test> tests) {
+    public Student(Long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.tests = tests;
+
     }
 
     public Long getId() {
