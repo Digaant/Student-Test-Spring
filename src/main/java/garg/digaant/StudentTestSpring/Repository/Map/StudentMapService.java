@@ -2,10 +2,12 @@ package garg.digaant.StudentTestSpring.Repository.Map;
 
 import garg.digaant.StudentTestSpring.Model.Student;
 import garg.digaant.StudentTestSpring.Repository.StudentRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class StudentMapService extends AbstractMapService<Student , Long> implements StudentRepository {
     @Override
     public Set<Student> findAll() {

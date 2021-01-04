@@ -1,10 +1,7 @@
 package garg.digaant.StudentTestSpring.Model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,13 +9,13 @@ import java.util.Set;
 public class Student{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private int age;
 
-    @OneToMany(mappedBy = "students")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private Set<Test> tests = new HashSet<>();
 
     public Student() {

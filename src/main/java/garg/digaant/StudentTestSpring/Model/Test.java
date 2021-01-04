@@ -1,18 +1,20 @@
 package garg.digaant.StudentTestSpring.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Test {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String courseName;
     private String marks;
+
+    @ManyToOne
+    private Student student;
+
 
 
     public Test(Long id, String courseName, String marks) {
