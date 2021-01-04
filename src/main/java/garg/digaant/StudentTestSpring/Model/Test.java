@@ -3,7 +3,7 @@ package garg.digaant.StudentTestSpring.Model;
 import javax.persistence.Entity;
 
 @Entity
-public class Test extends BaseEntity {
+public class Test {
 
     private String courseName;
     private String marks;

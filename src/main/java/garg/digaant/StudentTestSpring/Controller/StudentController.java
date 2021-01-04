@@ -3,12 +3,12 @@ package garg.digaant.StudentTestSpring.Controller;
 
 import garg.digaant.StudentTestSpring.Model.Student;
 import garg.digaant.StudentTestSpring.Repository.Map.StudentMapService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
-@Controller
+@RestController
+@RequestMapping("/student-test")
 public class StudentController {
 
     private StudentMapService studentMapService;
@@ -18,8 +18,8 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<Student> getAllStudents(){
-        return (List<Student>) studentMapService.findAll();
+    public Set<Student> getAllStudents(){
+        return studentMapService.findAll();
     }
 
     @GetMapping("/students/{id}")
@@ -28,8 +28,8 @@ public class StudentController {
     }
 
     @GetMapping("/students/{test}")
-    public List<Student> getAllTopStudents(@PathVariable String test){
-        return (List<Student>) studentMapService.getAllTopStudents(studentMapService.findAll(),test);
+    public Set<Student> getAllTopStudents(@PathVariable String test){
+        return  studentMapService.getAllTopStudents(studentMapService.findAll(),test);
     }
 
     @PostMapping("/students")
@@ -38,4 +38,14 @@ public class StudentController {
     }
 
     @PutMapping("/students")
+    public void updateStudent(
+            @PathVariable("id") Long id,
+            @RequestBody Student student){
+        studentMapService.save(student);
+    }
+
+    @DeleteMapping("/students/{id}")
+    public void deleteStudent(@PathVariable("id") Long id){
+        studentMapService.deleteById(id);
+    }
 }
