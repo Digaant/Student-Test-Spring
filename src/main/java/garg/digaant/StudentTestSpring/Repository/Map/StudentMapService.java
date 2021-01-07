@@ -37,23 +37,22 @@ public class StudentMapService extends AbstractMapService<Student , Long> implem
     @Override
     public Set<Student> getAllTopStudents(Set<Student> students, String test) {
         Set<Student> topStudents = new HashSet<>();
-        if(students != null){
+        if(!students.isEmpty()){
             students.forEach(student -> {
-                if(student.getTests() != null){
+                if(!student.getTests().isEmpty()){
                     student.getTests().forEach(test1 -> {
                         if(test1.getCourseName().equals(test)){
-                            if(test1.getMarks().equals('A')){
-                                students.add(student);
+                            if(test1.getMarks().equals("A")){
+                                topStudents.add(student);
                             }
                         }
                     });
                 }
                 else{
-                    System.out.println("Student has not appeared for test");
+                    System.out.println(" No Student has appeared for test");
                 }
             });
-            return students;
         }
-        return null;
+        return topStudents;
     }
 }

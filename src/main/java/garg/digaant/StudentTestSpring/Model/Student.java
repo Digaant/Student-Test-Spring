@@ -16,16 +16,16 @@ public class Student{
     private int age;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
-    private Set<Test> tests = new HashSet<>();
+    private Set<Exam> exams = new HashSet<>();
 
     public Student() {
     }
 
-    public Student(Long id, String name, int age, Set<Test> tests) {
+    public Student(Long id, String name, int age, Set<Exam> exams) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.tests = tests;
+        this.exams = exams;
 
     }
 
@@ -53,12 +53,12 @@ public class Student{
         this.age = age;
     }
 
-    public Set<Test> getTests() {
-        return tests;
+    public Set<Exam> getTests() {
+        return exams;
     }
 
-    public void setTests(Set<Test> tests) {
-        this.tests = tests;
+    public void setTests(Set<Exam> exams) {
+        this.exams = exams;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Student{
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", tests=" + tests +
+                ", tests=" + exams +
                 '}';
     }
 }

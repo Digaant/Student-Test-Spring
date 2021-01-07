@@ -1,7 +1,7 @@
 package garg.digaant.StudentTestSpring.Repository;
 
-import garg.digaant.StudentTestSpring.Model.Test;
+import garg.digaant.StudentTestSpring.Model.Exam;
 
-public interface TestRepository extends CrudServiceRepository<Test, Long> {
+public interface TestRepository extends CrudServiceRepository<Exam, Long> {
 
 }
