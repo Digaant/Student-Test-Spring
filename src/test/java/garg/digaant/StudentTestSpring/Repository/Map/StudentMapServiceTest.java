@@ -149,11 +149,28 @@ class StudentMapServiceTest {
 
     @Test
     void delete() {
+        studentMapService.save(student1);
+        studentMapService.save(student2);
+        studentMapService.save(student3);
+        studentMapService.save(student4);
+        studentMapService.save(student5);
+
+        studentMapService.delete(student1);
+        assertEquals(4,studentMapService.findAll().size());
 
     }
 
     @Test
     void deleteById() {
+        studentMapService.save(student1);
+        studentMapService.save(student2);
+        studentMapService.save(student3);
+        studentMapService.save(student4);
+        studentMapService.save(student5);
+
+        studentMapService.deleteById(2L);
+
+        assertEquals(4,studentMapService.findALl().size());
     }
 
     @Test
